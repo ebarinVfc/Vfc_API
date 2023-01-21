@@ -26,6 +26,7 @@ public class PlanetStepDefs {
     @Then("the user should be able to view the information")
     public void theUserShouldBeAbleToViewTheInformation() {
         planetPage.printHeaders();
+       // planetPage.brokenLinks();
 
     }
 }

@@ -1,4 +1,4 @@
-package com.DS.runner;
+package com.vf.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -9,14 +9,15 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
 
-                "html:target/cucumber-report.html", "rerun:target/rerun.txt",
+                "html:target/cucumber-report.html",
+                "rerun:target/rerun.txt",
                 "json:target/cucumber.json"
 
                 },
-        features = "src/test/java/resources/features",
-        glue = "com/DS/step_definitions",
+        features = "src/test/resources/features",
+        glue = "com/vf/step_defi",
         dryRun = false,
-        tags = "@ui"
+        tags = "@api"
 
 
 

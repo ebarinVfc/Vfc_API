@@ -1,4 +1,4 @@
-package com.DS.utilities;
+package com.vf.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;
