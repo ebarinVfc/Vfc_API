@@ -4,17 +4,13 @@ import static io.restassured.RestAssured.*;
 
 import com.github.javafaker.Faker;
 import com.google.gson.Gson;
-import com.vf.pojo.VANS;
+import com.vf.pojo.Profile;
+import com.vf.vfcApiEndPoints.ApiHeaderConfig;
 import io.restassured.http.ContentType;
-
-import static io.restassured.response.Response.*;
 
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.json.JSONObject;
 import org.junit.Test;
-
-import static org.hamcrest.Matchers.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,10 +20,12 @@ import static io.restassured.RestAssured.given;
 public class Tests {
     Response response;
     String consumerId;
+    String consumerEmail;
 
     @Test
     public void postSignup_Consumer() {
         baseURI = "https://qa.xapi.vfc.com/data/v2/consumer";
+
         Map<String, String> headers = new HashMap<>();
         headers.put("channel", "CS");
         headers.put("brand", "VANS");
@@ -145,21 +143,13 @@ public class Tests {
 
     @Test
     public void ConsumerSignUp() {
-        baseURI = "https://qa.xapi.vfc.com/data/v2/consumer";
-        Map<String, String> headers = new HashMap<>();
-        headers.put("channel", "CS");
-        headers.put("brand", "VANS");
-        headers.put("siteId", "VANS-US");
-        headers.put("region", "NORA");
-        headers.put("source", "OMS");
-        headers.put("locale", "en_US");
-        headers.put("client_id", "4f655085a6ec4b338786d62922667746");
-        headers.put("client_secret", "e327F89fA8294bF3A5b174a64f33bA9d");
-        headers.put("x-transaction-id", "A v4 style guid");
+       // baseURI = "https://qa.xapi.vfc.com/data/v2/consumer";
+        baseURI = ApiHeaderConfig.getBaseURI();
+        Map<String, String> headers = ApiHeaderConfig.getHeaders();
 
         Faker faker = new Faker();
 
-        VANS request = new VANS();
+        Profile request = new Profile();
 
         request.setFirstName(faker.name().firstName());
         request.setLastName(faker.name().lastName());
@@ -189,8 +179,9 @@ public class Tests {
         String jsonString= response.asString();
         JsonPath jsonPath= new JsonPath(jsonString);
         consumerId=jsonPath.getString("consumerId");
+        consumerEmail= jsonPath.getString("email");
 
-        System.out.println("Consumer ID is:" + consumerId+"\n Response Code is: " + response.getStatusCode());
+        System.out.println("Consumer ID is:" + consumerId+"\nResponse Code is: " + response.getStatusCode()+"\nConsumer Email: "+consumerEmail);
 
     }
 }

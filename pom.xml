@@ -59,11 +59,14 @@
             <artifactId>cucumber-junit</artifactId>
             <version>7.10.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.9.0</version>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
         </dependency>
+
 
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -117,6 +120,7 @@
             <version>1.0.2</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
 

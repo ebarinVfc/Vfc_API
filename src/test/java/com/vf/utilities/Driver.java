@@ -17,7 +17,7 @@ public class Driver {
     }
 
 
-    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
+    private static final InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
     public static WebDriver get() {
 
         if (driverPool.get() == null) {
