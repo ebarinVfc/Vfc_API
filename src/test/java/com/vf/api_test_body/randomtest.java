@@ -8,9 +8,10 @@ public class randomtest {
     public void test(){
 
         Faker faker= new Faker();
-        System.out.println(faker.phoneNumber().phoneNumber());
+        System.out.println(faker.number().numberBetween(1000000,9999999));
         System.out.println(faker.internet().emailAddress());
         System.out.println(faker.phoneNumber().cellPhone());
+
 
     }
 

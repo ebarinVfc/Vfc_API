@@ -12,9 +12,9 @@ public class ApiHeaderConfig {
 
         Map<String, String> headers = new HashMap<>();
 
-        headers.put("siteId", "TBL-US");// same here
+        headers.put("siteId", "TBL-US");
         headers.put("x-transaction-id", "A v4 style guid");
-        headers.put("locale", "en_CA");
+        headers.put("locale", "en_US");
         headers.put("channel", "ECOMM");
         headers.put("source", "ECOM15");
         headers.put("region", "NORA");
